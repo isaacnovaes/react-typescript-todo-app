@@ -1,5 +1,7 @@
 :root {
 	--font-family: "Josefin Sans", sans-serif;
+	--normal: 400; /*normal font weight*/
+	--bold: 700; /*bold font weight*/
 
 	/* ## Colors */
 
