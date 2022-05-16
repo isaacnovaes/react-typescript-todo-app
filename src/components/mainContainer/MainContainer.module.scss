@@ -1,8 +1,15 @@
 .MainContainer {
 	position: absolute;
-	top: 100px;
+	top: 30px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 90%;
-	max-width: 600px;
+	max-width: 800px;
+	transition: 0.5s;
+}
+
+@media screen and (min-width: 800px) {
+	.MainContainer {
+		top: 50px;
+	}
 }
