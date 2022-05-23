@@ -1,5 +1,6 @@
 .MainContainer {
 	position: absolute;
+	z-index: 2;
 	top: 30px;
 	left: 50%;
 	transform: translateX(-50%);
