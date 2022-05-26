@@ -1,8 +1,9 @@
 import * as React from "react";
 import styles from "./TodoListContainer.module.scss";
 import CreateTodo from "../CreateTodo/CreateTodo";
+import TodoItem from "../TodoItem/TodoItem";
 
-interface TodoInterface {
+export interface TodoInterface {
 	id: number;
 	todo: string;
 	complete: boolean;
@@ -44,6 +45,33 @@ function TodoListContainer() {
 		setCreateCompletedTodo(current => !current);
 	}, []);
 
+	const onCloseTodo = (todoID: number) => {
+		setTodos(currentState => {
+			return currentState.filter(todo => todo.id !== todoID);
+		});
+	};
+
+	const onToggleTodoComplete = (todoID: number) => {
+		setTodos(currentState => {
+			return currentState.map(todo => {
+				if (todo.id === todoID) {
+					return { ...todo, complete: !todo.complete };
+				}
+
+				return todo;
+			});
+		});
+	};
+
+	const renderTodos = todos.map(todo => (
+		<TodoItem
+			key={todo.id}
+			{...todo}
+			onClose={onCloseTodo}
+			onToggle={onToggleTodoComplete}
+		/>
+	));
+
 	return (
 		<div className={styles.TodoListContainer}>
 			<CreateTodo
@@ -52,14 +80,7 @@ function TodoListContainer() {
 				onCreateCompleteTodo={onCreateCompleteTodo}
 				inputRef={textInputRef}
 			/>
-			<div>
-				{todos.length > 0 &&
-					todos.map(todo => (
-						<div key={todo.id} className={styles.Todo}>
-							{todo.todo}
-						</div>
-					))}
-			</div>
+			<div className={styles.Todos}>{todos.length > 0 && renderTodos}</div>
 		</div>
 	);
 }
