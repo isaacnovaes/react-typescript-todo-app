@@ -6,13 +6,18 @@ interface TodoInterface {
 	complete: boolean;
 }
 
-type StateType = { theme: "dark" | "light"; todos: TodoInterface[] };
+type StateType = {
+	theme: "dark" | "light";
+	todos: TodoInterface[];
+	filter: boolean;
+};
 
 type ActionType =
-	| { type: "toggle" }
+	| { type: "toggle theme" }
 	| { type: "add todo"; todo: string; complete: boolean }
 	| { type: "remove todo"; todoID: number }
-	| { type: "toggle todo complete"; todoID: number };
+	| { type: "toggle todo complete"; todoID: number }
+	| { type: "toggle filter" };
 
 type ProviderPropsType = {
 	children: React.ReactNode;
@@ -25,11 +30,12 @@ const initialState: StateType = {
 		{ id: 5, todo: "second todo", complete: true },
 		{ id: 45, todo: "third todo", complete: false },
 	],
+	filter: false,
 };
 
 const reducer = (state: StateType, action: ActionType): StateType => {
 	switch (action.type) {
-		case "toggle":
+		case "toggle theme":
 			const theme = state.theme === "dark" ? "light" : "dark";
 			return {
 				...state,
@@ -60,6 +66,9 @@ const reducer = (state: StateType, action: ActionType): StateType => {
 					return todo;
 				}),
 			};
+
+		case "toggle filter":
+			return { ...state, filter: !state.filter };
 
 		default:
 			return state;
