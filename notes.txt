@@ -1,0 +1,23 @@
+For CSS modules to work with TypeScript
+- install and add typescript-plugin-css-modules
+    "compilerOptions": {
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
+	},
+- add a type declaration file in the src folder
+    for example srs/sassModuleTypeDeclaration.d.ts
+`
+// for SASS
+// To use vanilla CSS, change scss to css
+
+    declare module "*.module.scss" {
+	const classes: { [key: string]: string };
+	export default classes;
+    }
+`
+
+
+To avoid "toBeInTheDocument() not a function" or similar errors
+
+npm i --save-dev @testing-library/jest-dom
+import '@testing-library/jest-dom/extend-expect'; // in your test file
+
