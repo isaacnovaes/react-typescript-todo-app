@@ -5,22 +5,22 @@ import { Context } from "../../context/ContextProvider";
 import Todos from "../Todos/Todos";
 
 export interface TodoInterface {
-	id: number;
-	todo: string;
-	complete: boolean;
+    id: number;
+    todo: string;
+    complete: boolean;
 }
 
 function TodoListContainer() {
-	const {
-		state: { todos },
-	} = React.useContext(Context);
+    const {
+        state: { todos },
+    } = React.useContext(Context);
 
-	return (
-		<div className={styles.TodoListContainer}>
-			<CreateTodo />
-			{todos.length > 0 && <Todos todos={todos} />}
-		</div>
-	);
+    return (
+        <div className={styles.TodoListContainer}>
+            <CreateTodo />
+            {todos.length > 0 && <Todos todos={todos} />}
+        </div>
+    );
 }
 
 export default TodoListContainer;

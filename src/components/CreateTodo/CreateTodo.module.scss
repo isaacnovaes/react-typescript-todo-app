@@ -1,49 +1,49 @@
 .CreateTodo {
-	background-color: var(--very-dark-unsaturated-blue);
-	display: flex;
-	column-gap: 20px;
-	padding: 10px 20px;
-	border-radius: 5px;
+    background-color: var(--very-dark-unsaturated-blue);
+    display: flex;
+    column-gap: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
 
-	button {
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		background-color: transparent;
-		background-position: center;
-		border: 2px solid var(--dark-grayish-blue-dark);
-		transition: 0.5s;
-		cursor: pointer;
-	}
+    button {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-position: center;
+        border: 2px solid var(--dark-grayish-blue-dark);
+        transition: 0.5s;
+        cursor: pointer;
+    }
 
-	.CreateCompleted {
-		background-image: url(../../images/icon-check.svg),
-			linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-		background-position: center;
-		background-repeat: no-repeat;
-	}
+    .CreateCompleted {
+        background-image: url(../../images/icon-check.svg),
+            linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
-	input {
-		border: none;
-		color: var(--dark-grayish-blue-dark);
-		background-color: transparent;
-		font-size: 0.9rem;
-		flex-grow: 1;
+    input {
+        border: none;
+        color: var(--dark-grayish-blue-dark);
+        background-color: transparent;
+        font-size: 0.9rem;
+        flex-grow: 1;
 
-		&::placeholder {
-			color: var(--dark-grayish-blue-dark);
-		}
+        &::placeholder {
+            color: var(--dark-grayish-blue-dark);
+        }
 
-		&:focus {
-			outline: none;
-		}
-	}
+        &:focus {
+            outline: none;
+        }
+    }
 }
 
 .CreateTodoLight {
-	background-color: var(--very-light-gray);
+    background-color: var(--very-light-gray);
 
-	button {
-		border-color: var(--light-grayish-blue-light);
-	}
+    button {
+        border-color: var(--light-grayish-blue-light);
+    }
 }

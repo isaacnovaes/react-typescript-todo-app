@@ -1,47 +1,48 @@
 :root {
-	--font-family: "Josefin Sans", sans-serif;
-	--normal: 400; /*normal font weight*/
-	--bold: 700; /*bold font weight*/
+    --font-family: "Josefin Sans", sans-serif;
+    --normal: 400; /*normal font weight*/
+    --bold: 700; /*bold font weight*/
 
-	/* ## Colors */
+    /* ## Colors */
 
-	/* ### Primary */
+    /* ### Primary */
 
-	--bright-blue: hsl(220, 98%, 61%);
-	--check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --bright-blue: hsl(220, 98%, 61%);
+    --check-background: linear-gradient hsl(192, 100%, 67%) to
+        hsl(280, 87%, 65%);
 
-	/* ### Neutral */
+    /* ### Neutral */
 
-	/* ### Light Theme */
+    /* ### Light Theme */
 
-	--very-light-gray: hsl(0, 0%, 98%);
-	--very-light-grayish-blue: hsl(236, 33%, 92%);
-	--light-grayish-blue-light: hsl(233, 11%, 84%);
-	--dark-grayish-blue-light: hsl(236, 9%, 61%);
-	--very-dark-dryish-blue: hsl(235, 19%, 35%);
+    --very-light-gray: hsl(0, 0%, 98%);
+    --very-light-grayish-blue: hsl(236, 33%, 92%);
+    --light-grayish-blue-light: hsl(233, 11%, 84%);
+    --dark-grayish-blue-light: hsl(236, 9%, 61%);
+    --very-dark-dryish-blue: hsl(235, 19%, 35%);
 
-	/* ### Dark Theme */
+    /* ### Dark Theme */
 
-	--very-dark-blue: hsl(235, 21%, 11%);
-	--very-dark-unsaturated-blue: hsl(235, 24%, 19%);
-	--light-grayish-blue-dark: hsl(234, 39%, 85%);
-	--light-grayish-blue-hover: hsl(236, 33%, 92%);
-	--dark-grayish-blue-dark: hsl(234, 11%, 52%);
-	--very-dark-grayish-blue: hsl(233, 14%, 35%);
-	--darkest-grayish-blue: hsl(237, 14%, 26%);
+    --very-dark-blue: hsl(235, 21%, 11%);
+    --very-dark-unsaturated-blue: hsl(235, 24%, 19%);
+    --light-grayish-blue-dark: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue-dark: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue: hsl(233, 14%, 35%);
+    --darkest-grayish-blue: hsl(237, 14%, 26%);
 }
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
 html {
-	box-sizing: border-box;
-	line-height: 1.15;
-	-webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
-	font-size: 18px;
+    box-sizing: border-box;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+    font-size: 18px;
 }
 
 /* set core root defaults */
 html:focus-within {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /**
@@ -53,25 +54,25 @@ html:focus-within {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	font-family: var(--font-family);
-	font-weight: var(--normal);
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: var(--font-family);
+    font-weight: var(--normal);
 }
 
 body {
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 /* Remove the border on images inside links in IE 10. */
 img {
-	border-style: none;
+    border-style: none;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 /**
@@ -81,23 +82,23 @@ a {
 button,
 input,
 textarea {
-	appearance: none;
+    appearance: none;
 }
 
 /* Remove all animations, transitions, and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+    html:focus-within {
+        scroll-behavior: auto;
+    }
 
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Scroll bar style 

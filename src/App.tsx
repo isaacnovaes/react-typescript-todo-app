@@ -6,19 +6,19 @@ import TodoListContainer from "./components/todoListContainer/TodoListContainer"
 import useTheme from "./hooks/themeHook";
 
 function App() {
-	const isDarkTheme = useTheme();
+    const isDarkTheme = useTheme();
 
-	const classes = `${styles.App} ${isDarkTheme ? "" : styles.Light}`;
+    const classes = `${styles.App} ${isDarkTheme ? "" : styles.Light}`;
 
-	return (
-		<div className={classes}>
-			<AppBackground />
-			<MainContainer>
-				<Header />
-				<TodoListContainer />
-			</MainContainer>
-		</div>
-	);
+    return (
+        <div className={classes}>
+            <AppBackground />
+            <MainContainer>
+                <Header />
+                <TodoListContainer />
+            </MainContainer>
+        </div>
+    );
 }
 
 export default App;

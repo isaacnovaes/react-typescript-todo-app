@@ -4,50 +4,54 @@ import useTheme from "../../hooks/themeHook";
 import { Context } from "../../context/ContextProvider";
 
 export default function CreateTodo() {
-	const isDark = useTheme();
+    const isDark = useTheme();
 
-	const { dispatch } = React.useContext(Context);
+    const { dispatch } = React.useContext(Context);
 
-	const inputRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = React.useRef<HTMLInputElement>(null);
 
-	const [createCompletedTodo, setCreateCompletedTodo] = React.useState(false);
+    const [createCompletedTodo, setCreateCompletedTodo] = React.useState(false);
 
-	const onAddTodo = React.useCallback(
-		(event: React.KeyboardEvent) => {
-			if (!inputRef.current || !inputRef.current.value.trim()) return;
+    const onAddTodo = React.useCallback(
+        (event: React.KeyboardEvent) => {
+            if (!inputRef.current || !inputRef.current.value.trim()) return;
 
-			if (event.key !== "Enter") return;
+            if (event.key !== "Enter") return;
 
-			dispatch({
-				type: "add todo",
-				todo: inputRef.current.value.trim(),
-				complete: createCompletedTodo,
-			});
+            dispatch({
+                type: "add todo",
+                todo: inputRef.current.value.trim(),
+                complete: createCompletedTodo,
+            });
 
-			inputRef.current.value = "";
-		},
-		[createCompletedTodo, dispatch]
-	);
+            inputRef.current.value = "";
+        },
+        [createCompletedTodo, dispatch],
+    );
 
-	const onCreateCompleteTodo = React.useCallback(() => {
-		setCreateCompletedTodo(current => !current);
-	}, []);
+    const onCreateCompleteTodo = React.useCallback(() => {
+        setCreateCompletedTodo((current) => !current);
+    }, []);
 
-	return (
-		<div
-			className={`${styles.CreateTodo} ${isDark ? "" : styles.CreateTodoLight}`}
-		>
-			<button
-				type="button"
-				onClick={onCreateCompleteTodo}
-				className={`${createCompletedTodo ? styles.CreateCompleted : ""}`}
-			></button>
-			<input
-				type="text"
-				placeholder="Create a new todo..."
-				onKeyUp={onAddTodo}
-				ref={inputRef}
-			/>
-		</div>
-	);
+    return (
+        <div
+            className={`${styles.CreateTodo} ${
+                isDark ? "" : styles.CreateTodoLight
+            }`}
+        >
+            <button
+                type="button"
+                onClick={onCreateCompleteTodo}
+                className={`${
+                    createCompletedTodo ? styles.CreateCompleted : ""
+                }`}
+            ></button>
+            <input
+                type="text"
+                placeholder="Create a new todo..."
+                onKeyUp={onAddTodo}
+                ref={inputRef}
+            />
+        </div>
+    );
 }

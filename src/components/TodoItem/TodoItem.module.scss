@@ -1,60 +1,60 @@
 .TodoItem {
-	background-color: var(--very-dark-unsaturated-blue);
-	padding: 10px 20px;
-	border-bottom: 1px solid var(--dark-grayish-blue-dark);
+    background-color: var(--very-dark-unsaturated-blue);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--dark-grayish-blue-dark);
 
-	display: flex;
-	column-gap: 20px;
-	padding: 10px 20px;
-	transition: 0.5;
+    display: flex;
+    column-gap: 20px;
+    padding: 10px 20px;
+    transition: 0.5;
 
-	.CreateTudoToggleButton {
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		background-color: transparent;
-		background-position: center;
-		border: 2px solid var(--dark-grayish-blue-dark);
-		transition: 0.5s;
-		cursor: pointer;
-	}
+    .CreateTudoToggleButton {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-position: center;
+        border: 2px solid var(--dark-grayish-blue-dark);
+        transition: 0.5s;
+        cursor: pointer;
+    }
 
-	.CompletedTodo {
-		background-image: url(../../images/icon-check.svg),
-			linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-		background-position: center;
-		background-repeat: no-repeat;
-	}
+    .CompletedTodo {
+        background-image: url(../../images/icon-check.svg),
+            linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
-	p {
-		align-self: flex-end;
-		color: var(--dark-grayish-blue-dark);
-		background-color: transparent;
-		font-size: 0.9rem;
-		flex-grow: 1;
-	}
+    p {
+        align-self: flex-end;
+        color: var(--dark-grayish-blue-dark);
+        background-color: transparent;
+        font-size: 0.9rem;
+        flex-grow: 1;
+    }
 
-	p.TodoCompleted {
-		text-decoration: line-through;
-	}
+    p.TodoCompleted {
+        text-decoration: line-through;
+    }
 
-	.CloseTodo {
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		background-color: transparent;
-		background-image: url(../../images/icon-cross.svg);
-		background-position: center;
-		background-repeat: no-repeat;
-		border: none;
-		cursor: pointer;
-	}
+    .CloseTodo {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url(../../images/icon-cross.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 .TodoItemLight {
-	background-color: var(--very-light-gray);
+    background-color: var(--very-light-gray);
 
-	button {
-		border-color: var(--light-grayish-blue-light);
-	}
+    button {
+        border-color: var(--light-grayish-blue-light);
+    }
 }

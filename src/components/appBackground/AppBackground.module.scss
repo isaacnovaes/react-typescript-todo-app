@@ -1,16 +1,16 @@
 .AppBackground {
-	height: 250px;
-	width: 100%;
-	background-image: url(../../images/bg-mobile-dark.jpg),
-		linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-blend-mode: darken;
+    height: 250px;
+    width: 100%;
+    background-image: url(../../images/bg-mobile-dark.jpg),
+        linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
 }
 
 @media screen and (min-width: 600px) {
-	.AppBackground {
-		background-image: url(../../images/bg-desktop-dark.jpg),
-			linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-	}
+    .AppBackground {
+        background-image: url(../../images/bg-desktop-dark.jpg),
+            linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    }
 }
