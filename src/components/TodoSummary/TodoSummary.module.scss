@@ -1,0 +1,25 @@
+.todoSummary {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+    padding: 10px 20px;
+    background-color: var(--very-dark-unsaturated-blue);
+    transition: 0.5;
+    font-size: 0.9rem;
+    color: var(--dark-grayish-blue-light);
+
+    .itemsLeft {
+        width: fit-content;
+        text-align: center;
+    }
+    .clearButton {
+        border: none;
+        background-color: transparent;
+        color: inherit;
+        cursor: pointer;
+    }
+}
+
+.todoSummaryLight {
+    background-color: var(--very-light-gray);
+}
