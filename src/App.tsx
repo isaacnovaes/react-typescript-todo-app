@@ -8,7 +8,7 @@ import useTheme from "./hooks/themeHook";
 function App() {
     const isDarkTheme = useTheme();
 
-    const classes = `${styles.App} ${isDarkTheme ? "" : styles.Light}`;
+    const classes = `${styles.app} ${isDarkTheme ? "" : styles.light}`;
 
     return (
         <div className={classes}>

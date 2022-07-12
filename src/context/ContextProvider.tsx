@@ -7,10 +7,12 @@ interface TodoInterface {
     complete: boolean;
 }
 
+type Filter = "all" | "active" | "completed";
+
 type StateType = {
     theme: "dark" | "light";
     todos: TodoInterface[];
-    filter: boolean;
+    filter: { type: Filter };
 };
 
 type ActionType =
@@ -18,7 +20,8 @@ type ActionType =
     | { type: "add todo"; todo: string; complete: boolean }
     | { type: "remove todo"; todoID: number }
     | { type: "toggle todo complete"; todoID: number }
-    | { type: "toggle filter" };
+    | { type: "remove completed" }
+    | { type: "filter"; filter: Filter };
 
 type ProviderPropsType = {
     children: React.ReactNode;
@@ -31,7 +34,7 @@ const initialState: StateType = {
         { id: 5, todo: "second todo", complete: true },
         { id: 45, todo: "third todo", complete: false },
     ],
-    filter: false,
+    filter: { type: "all" },
 };
 
 const reducer = (state: StateType, action: ActionType): StateType => {
@@ -57,6 +60,12 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                 todos: state.todos.filter((todo) => todo.id !== action.todoID),
             };
 
+        case "remove completed":
+            return {
+                ...state,
+                todos: state.todos.filter((todo) => !todo.complete),
+            };
+
         case "toggle todo complete":
             return {
                 ...state,
@@ -68,8 +77,8 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                 }),
             };
 
-        case "toggle filter":
-            return { ...state, filter: !state.filter };
+        case "filter":
+            return { ...state, filter: { type: action.filter } };
 
         default:
             return state;
@@ -79,7 +88,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
 const Context = React.createContext<{
     state: StateType;
     dispatch: React.Dispatch<ActionType>;
-// eslint-disable-next-line @typescript-eslint/no-empty-function
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
 }>({ state: initialState, dispatch: () => {} });
 
 function ContextProvider({ children }: ProviderPropsType) {
