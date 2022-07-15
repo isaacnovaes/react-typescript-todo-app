@@ -34,17 +34,11 @@ export default function CreateTodo() {
     }, []);
 
     return (
-        <div
-            className={`${styles.CreateTodo} ${
-                isDark ? "" : styles.CreateTodoLight
-            }`}
-        >
+        <div className={`${styles.createTodo} ${isDark ? "" : styles.createTodoLight}`}>
             <button
                 type="button"
                 onClick={onCreateCompleteTodo}
-                className={`${
-                    createCompletedTodo ? styles.CreateCompleted : ""
-                }`}
+                className={`${createCompletedTodo ? styles.createCompleted : ""}`}
             ></button>
             <input
                 type="text"
