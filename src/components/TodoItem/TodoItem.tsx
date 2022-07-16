@@ -6,32 +6,20 @@ import { Context } from "../../context/ContextProvider";
 function TodoItem(Todo: { id: number; todo: string; complete: boolean }) {
     const isDark = useTheme();
     const { dispatch } = React.useContext(Context);
-
     return (
-        <div
-            key={Todo.id}
-            className={`${styles.TodoItem} ${
-                isDark ? "" : styles.TodoItemLight
-            }`}
-        >
+        <div key={Todo.id} className={`${styles.todoItem} ${isDark ? "" : styles.todoItemLight}`}>
             <button
                 type="button"
-                className={`${styles.CreateTudoToggleButton} ${
-                    Todo.complete ? styles.CompletedTodo : ""
+                className={`${styles.createTudoToggleButton} ${
+                    Todo.complete ? styles.completedTodo : ""
                 }`}
-                onClick={() =>
-                    dispatch({ type: "toggle todo complete", todoID: Todo.id })
-                }
+                onClick={() => dispatch({ type: "toggle todo complete", todoID: Todo.id })}
             ></button>
-            <p className={`${Todo.complete ? styles.TodoCompleted : " "}`}>
-                {Todo.todo}
-            </p>
+            <p className={`${Todo.complete ? styles.todoCompleted : ""}`}>{Todo.todo}</p>
             <button
                 type="button"
-                className={styles.CloseTodo}
-                onClick={() =>
-                    dispatch({ type: "remove todo", todoID: Todo.id })
-                }
+                className={styles.closeTodo}
+                onClick={() => dispatch({ type: "remove todo", todoID: Todo.id })}
             ></button>
         </div>
     );

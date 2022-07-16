@@ -1,14 +1,12 @@
-.TodoItem {
+.todoItem {
     background-color: var(--very-dark-unsaturated-blue);
-    padding: 10px 20px;
-    border-bottom: 1px solid var(--dark-grayish-blue-dark);
-
+    border-bottom: 1px solid var(--very-dark-grayish-blue);
     display: flex;
     column-gap: 20px;
     padding: 10px 20px;
     transition: 0.5;
 
-    .CreateTudoToggleButton {
+    .createTudoToggleButton {
         width: 25px;
         height: 25px;
         border-radius: 50%;
@@ -19,7 +17,7 @@
         cursor: pointer;
     }
 
-    .CompletedTodo {
+    .completedTodo {
         background-image: url(../../images/icon-check.svg),
             linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
         background-position: center;
@@ -32,13 +30,17 @@
         background-color: transparent;
         font-size: 0.9rem;
         flex-grow: 1;
+        width: clamp(100px, 90%, 500px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
-    p.TodoCompleted {
+    p.todoCompleted {
         text-decoration: line-through;
     }
 
-    .CloseTodo {
+    .closeTodo {
         width: 25px;
         height: 25px;
         border-radius: 50%;
@@ -51,8 +53,9 @@
     }
 }
 
-.TodoItemLight {
+.todoItemLight {
     background-color: var(--very-light-gray);
+    border-bottom-color: var(--light-grayish-blue-light);
 
     button {
         border-color: var(--light-grayish-blue-light);

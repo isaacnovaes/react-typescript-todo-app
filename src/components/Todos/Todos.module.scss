@@ -1,5 +1,4 @@
-.Todos {
+.todos {
     border-radius: 5px;
-    background-color: var(--very-dark-unsaturated-blue);
-    overflow: hidden;
+    overflow: hidden; // make border radius act on TodoItem
 }
