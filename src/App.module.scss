@@ -1,7 +1,6 @@
 .app {
     min-height: 100vh;
     background-color: var(--very-dark-blue);
-    position: relative; // correctly position the children in relation to the App component
     transition: 0.5s;
 }
 

@@ -1,8 +1,8 @@
 import styles from "./App.module.scss";
-import AppBackground from "./components/appBackground/AppBackground";
-import Header from "./components/header/Header";
-import MainContainer from "./components/mainContainer/MainContainer";
-import TodoListContainer from "./components/todoListContainer/TodoListContainer";
+import AppBackground from "./components/AppBackground/AppBackground";
+import Header from "./components/Header/Header";
+import MainContainer from "./components/MainContainer/MainContainer";
+import TodoListContainer from "./components/TodoListContainer/TodoListContainer";
 import useTheme from "./hooks/themeHook";
 
 function App() {

@@ -1,11 +1,12 @@
-import * as React from "react";
+import { useContext } from "react";
 import styles from "./TodoItem.module.scss";
 import useTheme from "../../hooks/themeHook";
 import { Context } from "../../context/ContextProvider";
 
 function TodoItem(Todo: { id: number; todo: string; complete: boolean }) {
     const isDark = useTheme();
-    const { dispatch } = React.useContext(Context);
+    const { dispatch } = useContext(Context);
+
     return (
         <div key={Todo.id} className={`${styles.todoItem} ${isDark ? "" : styles.todoItemLight}`}>
             <button

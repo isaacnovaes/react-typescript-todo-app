@@ -38,7 +38,7 @@ export default function CreateTodo() {
             <button
                 type="button"
                 onClick={onCreateCompleteTodo}
-                className={`${createCompletedTodo ? styles.createCompleted : ""}`}
+                className={`${createCompletedTodo ? styles.CreateCompleted : ""}`}
             ></button>
             <input
                 type="text"

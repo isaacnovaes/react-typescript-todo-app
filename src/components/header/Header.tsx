@@ -6,10 +6,10 @@ import useTheme from "../../hooks/themeHook";
 function Header() {
     const { dispatch } = React.useContext(Context);
     const isDarkTheme = useTheme();
-    const buttonClasses = isDarkTheme ? "" : styles.Light;
+    const buttonClasses = isDarkTheme ? "" : styles.light;
 
     return (
-        <header className={styles.Header}>
+        <header className={styles.header}>
             <h1>TODO</h1>
             <button
                 className={buttonClasses}
