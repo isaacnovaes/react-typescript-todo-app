@@ -39,7 +39,7 @@ export default function CreateTodo() {
                 type="button"
                 onClick={onCreateCompleteTodo}
                 className={`${createCompletedTodo ? styles.CreateCompleted : ""}`}
-            ></button>
+            />
             <input
                 type="text"
                 placeholder="Create a new todo..."

@@ -1,5 +1,4 @@
-/* eslint-disable no-case-declarations */
-import * as React from "react";
+import { useMemo, createContext, useReducer } from "react";
 
 interface TodoInterface {
     id: number;
@@ -39,13 +38,14 @@ const initialState: StateType = {
 
 const reducer = (state: StateType, action: ActionType): StateType => {
     switch (action.type) {
-        case "toggle theme":
+        case "toggle theme": {
             const theme = state.theme === "dark" ? "light" : "dark";
             return {
                 ...state,
                 theme,
             };
-        case "add todo":
+        }
+        case "add todo": {
             const newTodo: TodoInterface = {
                 id: Math.random(),
                 todo: action.todo,
@@ -53,7 +53,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
             };
 
             return { ...state, todos: [...state.todos, newTodo] };
-
+        }
         case "remove todo":
             return {
                 ...state,
@@ -85,16 +85,18 @@ const reducer = (state: StateType, action: ActionType): StateType => {
     }
 };
 
-const Context = React.createContext<{
+const Context = createContext<{
     state: StateType;
     dispatch: React.Dispatch<ActionType>;
     // eslint-disable-next-line @typescript-eslint/no-empty-function
 }>({ state: initialState, dispatch: () => {} });
 
 function ContextProvider({ children }: ProviderPropsType) {
-    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    const data = { state, dispatch };
+    const data = useMemo(() => {
+        return { state, dispatch };
+    }, [state]);
 
     return <Context.Provider value={data}>{children}</Context.Provider>;
 }

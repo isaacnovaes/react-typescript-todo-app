@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TodoInterface } from "../TodoListContainer/TodoListContainer";
+import type { TodoInterface } from "../TodoListContainer/TodoListContainer";
 import styles from "./Todos.module.scss";
 import TodoItem from "../TodoItem/TodoItem";
 import TodoSummary from "../TodoSummary/TodoSummary";

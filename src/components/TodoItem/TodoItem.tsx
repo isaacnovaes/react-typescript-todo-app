@@ -15,13 +15,13 @@ function TodoItem(Todo: { id: number; todo: string; complete: boolean }) {
                     Todo.complete ? styles.completedTodo : ""
                 }`}
                 onClick={() => dispatch({ type: "toggle todo complete", todoID: Todo.id })}
-            ></button>
+            />
             <p className={`${Todo.complete ? styles.todoCompleted : ""}`}>{Todo.todo}</p>
             <button
                 type="button"
                 className={styles.closeTodo}
                 onClick={() => dispatch({ type: "remove todo", todoID: Todo.id })}
-            ></button>
+            />
         </div>
     );
 }

@@ -15,7 +15,7 @@ function Header() {
                 className={buttonClasses}
                 type="button"
                 onClick={() => dispatch({ type: "toggle theme" })}
-            ></button>
+            />
         </header>
     );
 }

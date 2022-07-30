@@ -7,9 +7,7 @@ function AppBackground() {
         state: { theme },
     } = useContext(Context);
     return (
-        <div
-            className={`${styles.appBackground} ${theme === "light" ? styles.lightTheme : ""}`}
-        ></div>
+        <div className={`${styles.appBackground} ${theme === "light" ? styles.lightTheme : ""}`} />
     );
 }
 
