@@ -63,12 +63,7 @@ module.exports = {
         'no-unused-expressions': 'off',
         '@typescript-eslint/no-unused-expressions': ['error'], // overwrite base no-unused-expressions eslint
         'no-use-before-define': 'off',
-        '@typescript-eslint/no-use-before-define': [
-            'error',
-            {
-                variables: false,
-            },
-        ], // overwrite base no-use-before-define eslint
+        '@typescript-eslint/no-use-before-define': 'error', // overwrite base no-use-before-define eslint
         'react/boolean-prop-naming': ['error', { validateNested: true }],
         'react/button-has-type': 'warn',
         'react/no-array-index-key': 'warn',
