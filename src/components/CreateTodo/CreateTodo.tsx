@@ -1,7 +1,7 @@
-import styles from "./CreateTodo.module.scss";
-import * as React from "react";
-import useTheme from "../../hooks/themeHook";
-import { Context } from "../../context/ContextProvider";
+import styles from './CreateTodo.module.scss';
+import * as React from 'react';
+import useTheme from '../../hooks/themeHook';
+import { Context } from '../../context/ContextProvider';
 
 export default function CreateTodo() {
     const isDark = useTheme();
@@ -16,17 +16,17 @@ export default function CreateTodo() {
         (event: React.KeyboardEvent) => {
             if (!inputRef.current || !inputRef.current.value.trim()) return;
 
-            if (event.key !== "Enter") return;
+            if (event.key !== 'Enter') return;
 
             dispatch({
-                type: "add todo",
+                type: 'add todo',
                 todo: inputRef.current.value.trim(),
                 complete: createCompletedTodo,
             });
 
-            inputRef.current.value = "";
+            inputRef.current.value = '';
         },
-        [createCompletedTodo, dispatch],
+        [createCompletedTodo, dispatch]
     );
 
     const onCreateCompleteTodo = React.useCallback(() => {
@@ -34,15 +34,21 @@ export default function CreateTodo() {
     }, []);
 
     return (
-        <div className={`${styles.createTodo} ${isDark ? "" : styles.createTodoLight}`}>
+        <div
+            className={`${styles.createTodo} ${
+                isDark ? '' : styles.createTodoLight
+            }`}
+        >
             <button
-                type="button"
+                type='button'
                 onClick={onCreateCompleteTodo}
-                className={`${createCompletedTodo ? styles.CreateCompleted : ""}`}
+                className={`${
+                    createCompletedTodo ? styles.CreateCompleted : ''
+                }`}
             />
             <input
-                type="text"
-                placeholder="Create a new todo..."
+                type='text'
+                placeholder='Create a new todo...'
                 onKeyUp={onAddTodo}
                 ref={inputRef}
             />

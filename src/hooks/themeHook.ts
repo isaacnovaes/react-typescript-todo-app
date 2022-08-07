@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Context } from "../context/ContextProvider";
+import * as React from 'react';
+import { Context } from '../context/ContextProvider';
 
 /** If the theme is dark, returns true; Else returns false */
 export default function useTheme() {
@@ -7,7 +7,7 @@ export default function useTheme() {
         state: { theme },
     } = React.useContext(Context);
 
-    if (theme === "dark") return true;
+    if (theme === 'dark') return true;
 
     return false;
 }

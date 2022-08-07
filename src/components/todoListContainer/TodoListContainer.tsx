@@ -1,8 +1,8 @@
-import * as React from "react";
-import styles from "./TodoListContainer.module.scss";
-import CreateTodo from "../CreateTodo/CreateTodo";
-import { Context } from "../../context/ContextProvider";
-import Todos from "../Todos/Todos";
+import * as React from 'react';
+import { Context } from '../../context/ContextProvider';
+import CreateTodo from '../CreateTodo/CreateTodo';
+import Todos from '../Todos/Todos';
+import styles from './TodoListContainer.module.scss';
 
 export interface TodoInterface {
     id: number;
@@ -21,9 +21,15 @@ function TodoListContainer() {
     return (
         <div className={styles.todoListContainer}>
             <CreateTodo />
-            {todos.length > 0 && filter.type === "all" && <Todos todos={todos} />}
-            {todos.length > 0 && filter.type === "active" && <Todos todos={activeTodos} />}
-            {todos.length > 0 && filter.type === "completed" && <Todos todos={completedTodos} />}
+            {todos.length > 0 && filter.type === 'all' && (
+                <Todos todos={todos} />
+            )}
+            {todos.length > 0 && filter.type === 'active' && (
+                <Todos todos={activeTodos} />
+            )}
+            {todos.length > 0 && filter.type === 'completed' && (
+                <Todos todos={completedTodos} />
+            )}
         </div>
     );
 }

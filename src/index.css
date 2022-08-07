@@ -1,5 +1,5 @@
 :root {
-    --font-family: "Josefin Sans", sans-serif;
+    --font-family: 'Josefin Sans', sans-serif;
     --normal: 400; /*normal font weight*/
     --bold: 700; /*bold font weight*/
 
@@ -8,7 +8,8 @@
     /* ### Primary */
 
     --bright-blue: hsl(220, 98%, 61%);
-    --check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --check-background: linear-gradient hsl(192, 100%, 67%) to
+        hsl(280, 87%, 65%);
 
     /* ### Neutral */
 
@@ -30,7 +31,7 @@
     --very-dark-grayish-blue: hsl(233, 14%, 35%);
     --darkest-grayish-blue: hsl(237, 14%, 26%);
 }
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 html {
     box-sizing: border-box;

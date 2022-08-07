@@ -1,4 +1,4 @@
-import { useMemo, createContext, useReducer } from "react";
+import { useMemo, createContext, useReducer } from 'react';
 
 interface TodoInterface {
     id: number;
@@ -6,46 +6,46 @@ interface TodoInterface {
     complete: boolean;
 }
 
-type Filter = "all" | "active" | "completed";
+type Filter = 'all' | 'active' | 'completed';
 
 type StateType = {
-    theme: "dark" | "light";
+    theme: 'dark' | 'light';
     todos: TodoInterface[];
     filter: { type: Filter };
 };
 
 type ActionType =
-    | { type: "toggle theme" }
-    | { type: "add todo"; todo: string; complete: boolean }
-    | { type: "remove todo"; todoID: number }
-    | { type: "toggle todo complete"; todoID: number }
-    | { type: "remove completed" }
-    | { type: "filter"; filter: Filter };
+    | { type: 'toggle theme' }
+    | { type: 'add todo'; todo: string; complete: boolean }
+    | { type: 'remove todo'; todoID: number }
+    | { type: 'toggle todo complete'; todoID: number }
+    | { type: 'remove completed' }
+    | { type: 'filter'; filter: Filter };
 
 type ProviderPropsType = {
     children: React.ReactNode;
 };
 
 const initialState: StateType = {
-    theme: "dark",
+    theme: 'dark',
     todos: [
-        { id: 95, todo: "first todo", complete: false },
-        { id: 5, todo: "second todo", complete: true },
-        { id: 45, todo: "third todo", complete: false },
+        { id: 95, todo: 'first todo', complete: false },
+        { id: 5, todo: 'second todo', complete: true },
+        { id: 45, todo: 'third todo', complete: false },
     ],
-    filter: { type: "all" },
+    filter: { type: 'all' },
 };
 
 const reducer = (state: StateType, action: ActionType): StateType => {
     switch (action.type) {
-        case "toggle theme": {
-            const theme = state.theme === "dark" ? "light" : "dark";
+        case 'toggle theme': {
+            const theme = state.theme === 'dark' ? 'light' : 'dark';
             return {
                 ...state,
                 theme,
             };
         }
-        case "add todo": {
+        case 'add todo': {
             const newTodo: TodoInterface = {
                 id: Math.random(),
                 todo: action.todo,
@@ -54,19 +54,19 @@ const reducer = (state: StateType, action: ActionType): StateType => {
 
             return { ...state, todos: [...state.todos, newTodo] };
         }
-        case "remove todo":
+        case 'remove todo':
             return {
                 ...state,
                 todos: state.todos.filter((todo) => todo.id !== action.todoID),
             };
 
-        case "remove completed":
+        case 'remove completed':
             return {
                 ...state,
                 todos: state.todos.filter((todo) => !todo.complete),
             };
 
-        case "toggle todo complete":
+        case 'toggle todo complete':
             return {
                 ...state,
                 todos: state.todos.map((todo) => {
@@ -77,7 +77,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
                 }),
             };
 
-        case "filter":
+        case 'filter':
             return { ...state, filter: { type: action.filter } };
 
         default:

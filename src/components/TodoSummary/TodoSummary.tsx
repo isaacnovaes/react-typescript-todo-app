@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { Context } from "../../context/ContextProvider";
-import type { TodoInterface } from "../TodoListContainer/TodoListContainer";
-import useTheme from "../../hooks/themeHook";
-import styles from "./TodoSummary.module.scss";
+import { useContext } from 'react';
+import { Context } from '../../context/ContextProvider';
+import type { TodoInterface } from '../TodoListContainer/TodoListContainer';
+import useTheme from '../../hooks/themeHook';
+import styles from './TodoSummary.module.scss';
 
 const TodoSummary = ({ todos }: { todos: TodoInterface[] }) => {
     const isDark = useTheme();
@@ -17,41 +17,51 @@ const TodoSummary = ({ todos }: { todos: TodoInterface[] }) => {
     let summaryMessage;
 
     if (leftTodos >= 1) {
-        summaryMessage = `${leftTodos} ${leftTodos > 1 ? "items" : "item"} left`;
+        summaryMessage = `${leftTodos} ${
+            leftTodos > 1 ? 'items' : 'item'
+        } left`;
     } else {
-        summaryMessage = "No item left";
+        summaryMessage = 'No item left';
     }
 
     return (
-        <div className={`${styles.todoSummary} ${isDark ? "" : styles.todoSummaryLight}`}>
+        <div
+            className={`${styles.todoSummary} ${
+                isDark ? '' : styles.todoSummaryLight
+            }`}
+        >
             <span className={styles.itemsLeft}>{summaryMessage}</span>
-            <div style={{ width: "20%", display: "flex", columnGap: "20%" }}>
+            <div style={{ width: '20%', display: 'flex', columnGap: '20%' }}>
                 <button
-                    type="button"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => dispatch({ type: "filter", filter: "all" })}
+                    type='button'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => dispatch({ type: 'filter', filter: 'all' })}
                 >
                     All
                 </button>
                 <button
-                    type="button"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => dispatch({ type: "filter", filter: "active" })}
+                    type='button'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() =>
+                        dispatch({ type: 'filter', filter: 'active' })
+                    }
                 >
                     Active
                 </button>
                 <button
-                    type="button"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => dispatch({ type: "filter", filter: "completed" })}
+                    type='button'
+                    style={{ cursor: 'pointer' }}
+                    onClick={() =>
+                        dispatch({ type: 'filter', filter: 'completed' })
+                    }
                 >
                     Completeed
                 </button>
             </div>
             <button
-                type="button"
+                type='button'
                 className={styles.clearButton}
-                onClick={() => dispatch({ type: "remove completed" })}
+                onClick={() => dispatch({ type: 'remove completed' })}
             >
                 Clear Completed
             </button>

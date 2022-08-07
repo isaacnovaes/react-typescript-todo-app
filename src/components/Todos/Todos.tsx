@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import type { TodoInterface } from "../TodoListContainer/TodoListContainer";
-import styles from "./Todos.module.scss";
-import TodoItem from "../TodoItem/TodoItem";
-import TodoSummary from "../TodoSummary/TodoSummary";
-import { Reorder } from "framer-motion";
+import { Reorder } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import TodoItem from '../TodoItem/TodoItem';
+import type { TodoInterface } from '../TodoListContainer/TodoListContainer';
+import TodoSummary from '../TodoSummary/TodoSummary';
+import styles from './Todos.module.scss';
 
 export default function Todos({ todos }: { todos: TodoInterface[] }) {
     // const getItems = todos.map(todos=>todos.todo)
@@ -12,10 +12,10 @@ export default function Todos({ todos }: { todos: TodoInterface[] }) {
     return (
         <div className={styles.todos}>
             <Reorder.Group
-                axis="y"
+                axis='y'
                 values={items}
                 onReorder={setItems}
-                style={{ overflow: "hidden" }}
+                style={{ overflow: 'hidden' }}
             >
                 {items.map((todo) => (
                     <Reorder.Item
