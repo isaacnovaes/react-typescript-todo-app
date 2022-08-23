@@ -4,7 +4,7 @@
     display: flex;
     column-gap: 20px;
     padding: 10px 20px;
-    transition: 0.5;
+    transition: 0.5s;
 
     .createTudoToggleButton {
         width: 25px;
@@ -34,10 +34,6 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-
-        &:hover {
-            cursor: grab;
-        }
     }
 
     p.todoCompleted {
