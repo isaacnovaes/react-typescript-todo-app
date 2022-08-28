@@ -12,12 +12,7 @@ export default function Todos({ todos }: { todos: TodoInterface[] }) {
     }, [todos]);
     return (
         <div className={styles.todos}>
-            <Reorder.Group
-                values={items}
-                onReorder={setItems}
-                style={{ overflow: 'hidden' }}
-                axis='y'
-            >
+            <Reorder.Group values={items} onReorder={setItems} axis='y'>
                 <AnimatePresence>
                     {items.map((todo) => (
                         <Reorder.Item
@@ -26,8 +21,7 @@ export default function Todos({ todos }: { todos: TodoInterface[] }) {
                             value={todo}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            whileDrag={{ cursor: 'grab' }}
+                            exit={{ opacity: 0, x: '10%' }}
                         >
                             <TodoItem {...todo} />
                         </Reorder.Item>

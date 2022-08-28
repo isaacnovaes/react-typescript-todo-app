@@ -5,8 +5,9 @@
     column-gap: 20px;
     padding: 10px 20px;
     transition: 0.5s;
+    cursor: grab;
 
-    .createTudoToggleButton {
+    .createTodoToggleButton {
         width: 25px;
         height: 25px;
         border-radius: 50%;

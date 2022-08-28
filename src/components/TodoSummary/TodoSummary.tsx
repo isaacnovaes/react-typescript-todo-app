@@ -55,7 +55,7 @@ const TodoSummary = ({ todos }: { todos: TodoInterface[] }) => {
                         dispatch({ type: 'filter', filter: 'completed' })
                     }
                 >
-                    Completeed
+                    Completed
                 </button>
             </div>
             <button

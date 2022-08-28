@@ -1,7 +1,7 @@
 import { useMemo, createContext, useReducer } from 'react';
 
 interface TodoInterface {
-    id: number;
+    id: string;
     todo: string;
     complete: boolean;
 }
@@ -17,8 +17,8 @@ type StateType = {
 type ActionType =
     | { type: 'toggle theme' }
     | { type: 'add todo'; todo: string; complete: boolean }
-    | { type: 'remove todo'; todoID: number }
-    | { type: 'toggle todo complete'; todoID: number }
+    | { type: 'remove todo'; todoID: string }
+    | { type: 'toggle todo complete'; todoID: string }
     | { type: 'remove completed' }
     | { type: 'filter'; filter: Filter };
 
@@ -29,9 +29,9 @@ type ProviderPropsType = {
 const initialState: StateType = {
     theme: 'dark',
     todos: [
-        { id: 95, todo: 'first todo', complete: false },
-        { id: 5, todo: 'second todo', complete: true },
-        { id: 45, todo: 'third todo', complete: false },
+        { id: '95', todo: 'first todo', complete: false },
+        { id: '5', todo: 'second todo', complete: true },
+        { id: '45', todo: 'third todo', complete: false },
     ],
     filter: { type: 'all' },
 };
@@ -47,7 +47,7 @@ const reducer = (state: StateType, action: ActionType): StateType => {
         }
         case 'add todo': {
             const newTodo: TodoInterface = {
-                id: Math.random(),
+                id: Math.random().toString(),
                 todo: action.todo,
                 complete: action.complete,
             };

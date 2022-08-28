@@ -5,7 +5,7 @@ import Todos from '../Todos/Todos';
 import styles from './TodoListContainer.module.scss';
 
 export interface TodoInterface {
-    id: number;
+    id: string;
     todo: string;
     complete: boolean;
 }
