@@ -1,18 +1,18 @@
 import styles from './CreateTodo.module.scss';
-import * as React from 'react';
+import { useContext, useRef, useState, useCallback } from 'react';
 import useTheme from '../../hooks/themeHook';
 import { Context } from '../../context/ContextProvider';
 
 export default function CreateTodo() {
     const isDark = useTheme();
 
-    const { dispatch } = React.useContext(Context);
+    const { dispatch } = useContext(Context);
 
-    const inputRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
-    const [createCompletedTodo, setCreateCompletedTodo] = React.useState(false);
+    const [createCompletedTodo, setCreateCompletedTodo] = useState(false);
 
-    const onAddTodo = React.useCallback(
+    const onAddTodo = useCallback(
         (event: React.KeyboardEvent) => {
             if (!inputRef.current || !inputRef.current.value.trim()) return;
 
@@ -29,7 +29,7 @@ export default function CreateTodo() {
         [createCompletedTodo, dispatch]
     );
 
-    const onCreateCompleteTodo = React.useCallback(() => {
+    const onCreateCompleteTodo = useCallback(() => {
         setCreateCompletedTodo((current) => !current);
     }, []);
 

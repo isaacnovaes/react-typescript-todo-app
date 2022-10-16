@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Context } from '../../context/ContextProvider';
-import type { TodoInterface } from '../TodoListContainer/TodoListContainer';
+import { type TodoInterface } from '../TodoListContainer/TodoListContainer';
 import useTheme from '../../hooks/themeHook';
 import styles from './TodoSummary.module.scss';
 

@@ -1,4 +1,3 @@
-import type * as React from 'react';
 import styles from './MainContainer.module.scss';
 
 type ChildrenType = { children: React.ReactNode };

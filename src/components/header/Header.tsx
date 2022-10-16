@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { useContext } from 'react';
 import { Context } from '../../context/ContextProvider';
 import useTheme from '../../hooks/themeHook';
 import styles from './Header.module.scss';
 
 function Header() {
-    const { dispatch } = React.useContext(Context);
+    const { dispatch } = useContext(Context);
     const isDarkTheme = useTheme();
     const buttonClasses = isDarkTheme ? '' : styles.light;
 
