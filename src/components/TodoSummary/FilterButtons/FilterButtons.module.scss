@@ -1,0 +1,48 @@
+.filterButtons {
+    order: 2;
+    column-gap: 5px;
+    background-color: var(--very-dark-unsaturated-blue);
+
+    &.big {
+        display: flex;
+    }
+
+    &.small {
+        display: none;
+    }
+
+    > button {
+        color: var(--dark-grayish-blue-light);
+        border: none;
+        padding: 0 10px;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        &.active {
+            color: var(--bright-blue);
+        }
+    }
+}
+
+.filterButtons.light {
+    background-color: var(--very-light-gray);
+}
+
+@media screen and (width <= 600px) {
+    .filterButtons {
+        justify-content: center;
+        column-gap: 10%;
+        margin-top: 20px;
+        border-radius: 5px;
+
+        &.big {
+            display: none;
+        }
+
+        &.small {
+            display: flex;
+            height: 40px;
+        }
+    }
+}

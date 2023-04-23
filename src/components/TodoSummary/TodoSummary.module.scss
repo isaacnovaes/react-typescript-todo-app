@@ -15,25 +15,6 @@
         order: 1;
     }
 
-    .filterButtons {
-        order: 2;
-        display: flex;
-        column-gap: 5px;
-
-        > button {
-            color: var(--dark-grayish-blue-light);
-            background-color: var(--very-dark-unsaturated-blue);
-            border: none;
-            padding: 0 10px;
-
-            cursor: pointer;
-
-            &.active {
-                color: var(--bright-blue);
-            }
-        }
-    }
-
     .clearButton {
         order: 3;
         border: none;
@@ -45,4 +26,10 @@
 
 .todoSummaryLight {
     background-color: var(--very-light-gray);
+}
+
+@media screen and (width <= 600px) {
+    .todoSummary {
+        border-radius: 0 0 5px 5px;
+    }
 }
