@@ -2,7 +2,7 @@
     height: 250px;
     width: 100%;
     background-image: url(../../images/bg-mobile-dark.jpg),
-        linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        linear-gradient(to right, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
@@ -10,17 +10,17 @@
 
 .lightTheme {
     background-image: url(../../images/bg-mobile-light.jpg),
-        linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+        linear-gradient(to right, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
     .appBackground {
         background-image: url(../../images/bg-desktop-dark.jpg),
-            linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            linear-gradient(to right, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
     }
 
     .lightTheme {
         background-image: url(../../images/bg-desktop-light.jpg),
-            linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+            linear-gradient(to right, hsl(192deg 100% 67%), hsl(280deg 87% 65%));
     }
 }
