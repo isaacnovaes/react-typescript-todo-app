@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { useAppContextDispatch, useIsDarkTheme } from '../../hooks/hooks';
 import styles from './TodoItem.module.scss';
-import useTheme from '../../hooks/themeHook';
-import { Context } from '../../context/ContextProvider';
 
 function TodoItem(todo: { id: string; todo: string; complete: boolean }) {
-    const isDark = useTheme();
-    const { dispatch } = useContext(Context);
+    const isDark = useIsDarkTheme();
+    const dispatch = useAppContextDispatch();
+
+    if (isDark === null || dispatch === null) return null;
 
     return (
         <div

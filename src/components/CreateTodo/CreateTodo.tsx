@@ -1,30 +1,28 @@
+import { useCallback, useState } from 'react';
+import { useAppContextDispatch, useIsDarkTheme } from '../../hooks/hooks';
 import styles from './CreateTodo.module.scss';
-import { useContext, useRef, useState, useCallback } from 'react';
-import useTheme from '../../hooks/themeHook';
-import { Context } from '../../context/ContextProvider';
 
 export default function CreateTodo() {
-    const isDark = useTheme();
-
-    const { dispatch } = useContext(Context);
-
-    const inputRef = useRef<HTMLInputElement>(null);
+    const isDark = useIsDarkTheme();
+    const dispatch = useAppContextDispatch();
 
     const [createCompletedTodo, setCreateCompletedTodo] = useState(false);
 
-    const onAddTodo = useCallback(
-        (event: React.KeyboardEvent) => {
-            if (!inputRef.current || !inputRef.current.value.trim()) return;
+    const onAddTodo: React.KeyboardEventHandler<HTMLInputElement> = useCallback(
+        (event) => {
+            if (!event.target.value.trim()) return;
 
             if (event.key !== 'Enter') return;
 
+            if (dispatch === null) return;
+
             dispatch({
                 type: 'add todo',
-                todo: inputRef.current.value.trim(),
+                todo: event.target.value.trim(),
                 complete: createCompletedTodo,
             });
 
-            inputRef.current.value = '';
+            event.target.value = '';
         },
         [createCompletedTodo, dispatch]
     );
@@ -32,6 +30,8 @@ export default function CreateTodo() {
     const onCreateCompleteTodo = useCallback(() => {
         setCreateCompletedTodo((current) => !current);
     }, []);
+
+    if (isDark === null) return null;
 
     return (
         <div
@@ -50,7 +50,6 @@ export default function CreateTodo() {
                 type='text'
                 placeholder='Create a new todo...'
                 onKeyUp={onAddTodo}
-                ref={inputRef}
             />
         </div>
     );

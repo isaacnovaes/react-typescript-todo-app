@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Context } from '../../context/ContextProvider';
+import { useFilter, useTodos } from '../../hooks/hooks';
 import CreateTodo from '../CreateTodo/CreateTodo';
 import Todos from '../Todos/Todos';
 import styles from './TodoListContainer.module.scss';
@@ -11,9 +10,10 @@ export interface TodoInterface {
 }
 
 function TodoListContainer() {
-    const {
-        state: { todos, filter },
-    } = React.useContext(Context);
+    const todos = useTodos();
+    const filter = useFilter();
+
+    if (todos === null || filter === null) return null;
 
     const activeTodos = todos.filter((todo) => !todo.complete);
     const completedTodos = todos.filter((todo) => todo.complete);

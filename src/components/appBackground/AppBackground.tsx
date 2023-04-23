@@ -1,15 +1,14 @@
-import { useContext } from 'react';
-import { Context } from '../../context/ContextProvider';
+import { useIsDarkTheme } from '../../hooks/hooks';
 import styles from './AppBackground.module.scss';
 
 function AppBackground() {
-    const {
-        state: { theme },
-    } = useContext(Context);
+    const isDarkTheme = useIsDarkTheme();
+    if (isDarkTheme === null) return null;
+
     return (
         <div
             className={`${styles.appBackground} ${
-                theme === 'light' ? styles.lightTheme : ''
+                isDarkTheme ? '' : styles.lightTheme
             }`}
         />
     );
