@@ -1,4 +1,4 @@
-import { useMemo, createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
 interface TodoInterface {
     id: string;
@@ -36,7 +36,7 @@ const initialState: StateType = {
     filter: { type: 'all' },
 };
 
-const reducer = (state: StateType, action: ActionType): StateType => {
+const appContextReducer = (state: StateType, action: ActionType): StateType => {
     switch (action.type) {
         case 'toggle theme': {
             const theme = state.theme === 'dark' ? 'light' : 'dark';
@@ -81,24 +81,26 @@ const reducer = (state: StateType, action: ActionType): StateType => {
             return { ...state, filter: { type: action.filter } };
 
         default:
+            new Error(
+                `Something went wrong. This action type is not handled by AppContext.`
+            );
             return state;
     }
 };
 
-const Context = createContext<{
-    state: StateType;
-    dispatch: React.Dispatch<ActionType>;
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-}>({ state: initialState, dispatch: () => {} });
+export const AppContext = createContext<StateType | null>(null);
 
-function ContextProvider({ children }: ProviderPropsType) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+export const AppContextDispatch =
+    createContext<React.Dispatch<ActionType> | null>(null);
 
-    const data = useMemo(() => {
-        return { state, dispatch };
-    }, [state]);
+export function ContextProvider({ children }: ProviderPropsType) {
+    const [state, dispatch] = useReducer(appContextReducer, initialState);
 
-    return <Context.Provider value={data}>{children}</Context.Provider>;
+    return (
+        <AppContext.Provider value={state}>
+            <AppContextDispatch.Provider value={dispatch}>
+                {children}
+            </AppContextDispatch.Provider>
+        </AppContext.Provider>
+    );
 }
-
-export { Context, ContextProvider };
