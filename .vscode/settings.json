@@ -1,3 +1,4 @@
 {
-    "cSpell.words": ["browserslist", "camelcase", "todos"]
+    "cSpell.words": ["browserslist", "camelcase", "todos"],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }
